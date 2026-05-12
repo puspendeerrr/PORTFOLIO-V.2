@@ -1,0 +1,9 @@
+.interactive-card {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.interactive-card-content {
+  display: contents;
+}
