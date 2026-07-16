@@ -38,8 +38,15 @@ const login = async (req, res, next) => {
       });
     }
 
-    // Compare password with hashed password
-    const isPasswordValid = await bcryptjs.compare(password, adminPassword);
+    // Compare password with hashed password (or fallback to plain-text check if not hashed)
+    let isPasswordValid = false;
+    const isHashed = adminPassword.startsWith('$2a$') || adminPassword.startsWith('$2b$') || adminPassword.startsWith('$2y$');
+    
+    if (isHashed) {
+      isPasswordValid = await bcryptjs.compare(password, adminPassword);
+    } else {
+      isPasswordValid = (password === adminPassword);
+    }
 
     if (!isPasswordValid) {
       return res.status(401).json({

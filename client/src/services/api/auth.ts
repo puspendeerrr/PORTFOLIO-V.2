@@ -28,8 +28,19 @@ export const authService = {
       });
 
       if (!response.ok) {
-        const error = await response.json();
-        throw new Error(error.message || 'Login failed');
+        let errorMessage = 'Login failed';
+        try {
+          const error = await response.json();
+          errorMessage = error.message || errorMessage;
+        } catch (jsonErr) {
+          try {
+            const text = await response.text();
+            errorMessage = text || errorMessage;
+          } catch (textErr) {
+            // ignore
+          }
+        }
+        throw new Error(errorMessage);
       }
 
       return await response.json();
