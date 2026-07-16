@@ -306,6 +306,60 @@ export const bulkUploadFiles = async (token, files) => {
 };
 
 /**
+ * Get profile picture - GET /api/profile-picture
+ * @returns {Promise<{success: boolean, data: Object}>}
+ */
+export const getProfilePicture = async () => {
+  try {
+    const response = await fetch(`${BASE_URL}/profile-picture`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    });
+
+    if (!response.ok) {
+      const error = await response.json();
+      throw new Error(error.message || 'Failed to fetch profile picture');
+    }
+
+    return await response.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
+/**
+ * Update profile picture - POST /api/profile-picture
+ * @param {string} token - JWT token
+ * @param {FormData} formData - Multipart form data with image file
+ * @returns {Promise<{success: boolean, data: Object}>}
+ */
+export const updateProfilePicture = async (token, formData) => {
+  try {
+    const response = await fetch(`${BASE_URL}/profile-picture`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      body: formData
+    });
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Unauthorized: Token expired or invalid');
+      }
+      const error = await response.json();
+      throw new Error(error.message || 'Failed to update profile picture');
+    }
+
+    return await response.json();
+  } catch (error) {
+    throw error;
+  }
+};
+
+/**
  * Get all projects - GET /api/projects
  * @returns {Promise<{success: boolean, data: Array}>}
  */
@@ -532,5 +586,7 @@ export default {
   uploadProjectFiles,
   getDocumentations,
   createDocumentation,
-  deleteDocumentation
+  deleteDocumentation,
+  getProfilePicture,
+  updateProfilePicture
 };

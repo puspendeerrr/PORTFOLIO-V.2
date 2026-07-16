@@ -6,6 +6,6 @@
 export { authService } from './auth';
 export { filesService } from './files';
 export { projectsService } from './projects';
-export { heroSlidesService } from './heroSlides';
+export { profilePictureService } from './profilePicture';
 export { handleApiError, isUnauthorizedError } from './errorHandler';
 export { default as BASE_URL } from './config';

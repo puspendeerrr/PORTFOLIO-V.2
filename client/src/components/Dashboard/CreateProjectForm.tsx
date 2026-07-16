@@ -11,6 +11,10 @@ const CreateProjectForm: React.FC<CreateProjectFormProps> = ({ token, onProjectC
   const [formData, setFormData] = useState({
     title: '',
     description: '',
+    problem: '',
+    solution: '',
+    role: '',
+    outcome: '',
     keyFeatures: '',
     whatILearned: '',
     techStack: '',
@@ -47,6 +51,10 @@ const CreateProjectForm: React.FC<CreateProjectFormProps> = ({ token, onProjectC
       const projectData = {
         title: formData.title,
         description: formData.description,
+        problem: formData.problem,
+        solution: formData.solution,
+        role: formData.role,
+        outcome: formData.outcome,
         keyFeatures: formData.keyFeatures
           .split(',')
           .map(f => f.trim())
@@ -68,6 +76,10 @@ const CreateProjectForm: React.FC<CreateProjectFormProps> = ({ token, onProjectC
         setFormData({
           title: '',
           description: '',
+          problem: '',
+          solution: '',
+          role: '',
+          outcome: '',
           keyFeatures: '',
           whatILearned: '',
           techStack: '',
@@ -126,6 +138,62 @@ const CreateProjectForm: React.FC<CreateProjectFormProps> = ({ token, onProjectC
             onChange={handleChange}
             placeholder="Enter project description"
             rows={3}
+            disabled={loading}
+            className="form-textarea"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="problem">Problem</label>
+          <textarea
+            id="problem"
+            name="problem"
+            value={formData.problem}
+            onChange={handleChange}
+            placeholder="Describe the challenge or problem this project addresses"
+            rows={2}
+            disabled={loading}
+            className="form-textarea"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="solution">Solution</label>
+          <textarea
+            id="solution"
+            name="solution"
+            value={formData.solution}
+            onChange={handleChange}
+            placeholder="Describe the solution designed for this project"
+            rows={2}
+            disabled={loading}
+            className="form-textarea"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="role">Role</label>
+          <input
+            type="text"
+            id="role"
+            name="role"
+            value={formData.role}
+            onChange={handleChange}
+            placeholder="Describe your role (e.g., Coordinator, Team Lead)"
+            disabled={loading}
+            className="form-input"
+          />
+        </div>
+
+        <div className="form-group">
+          <label htmlFor="outcome">Outcome</label>
+          <textarea
+            id="outcome"
+            name="outcome"
+            value={formData.outcome}
+            onChange={handleChange}
+            placeholder="Describe the results and business/project outcome"
+            rows={2}
             disabled={loading}
             className="form-textarea"
           />

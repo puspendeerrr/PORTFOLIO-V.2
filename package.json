@@ -9,7 +9,7 @@
     "dev:server": "cd backend && npm run dev",
     "build": "npm run build:client && npm run build:server",
     "build:client": "cd client && npm run build",
-    "build:server": "cd backend && npm run build",
+    "build:server": "echo \"No build required for server\"",
     "preview": "cd client && npm run preview",
     "lint": "cd client && npm run lint"
   },

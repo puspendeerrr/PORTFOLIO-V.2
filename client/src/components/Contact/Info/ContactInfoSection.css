@@ -1,17 +1,107 @@
-.contact-info {
-  padding: 20px 22px;
+.contact-info-card {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-.contact-info-text {
-  margin: 0 0 6px;
-  font-size: 0.96rem;
+.contact-items-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.contact-item-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--color-border-subtle);
+  transition: transform 0.2s ease, border-color 0.2s, background 0.2s;
+}
+
+.contact-item-row:hover {
+  transform: translateY(-2px);
+  border-color: var(--color-border-hover);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.contact-item-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.contact-item-details {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+  min-width: 0; /* Ensures text-overflow ellipsis works if needed */
+}
+
+.contact-item-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
   color: var(--color-text-muted);
+  font-weight: 600;
 }
 
-.contact-info-email {
-  margin: 0;
-  font-size: 0.9rem;
+.contact-item-value {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  word-break: break-all;
 }
 
+.contact-item-value-link {
+  font-size: 0.95rem;
+  color: var(--color-text);
+  word-break: break-all;
+  transition: color var(--transition-fast);
+}
 
+.contact-item-value-link:hover {
+  color: var(--color-primary);
+  text-decoration: underline;
+}
 
+.contact-item-copy-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--transition-fast);
+}
+
+.contact-item-copy-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--color-text);
+  border-color: var(--color-border-subtle);
+}
+
+.copy-success-icon {
+  color: #34d399;
+  animation: scale-up 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes scale-up {
+  0% { transform: scale(0.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}

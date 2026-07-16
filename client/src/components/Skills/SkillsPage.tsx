@@ -6,28 +6,28 @@ import "./SkillsPage.css";
 
 const skillsData = [
   {
-    category: "Technical",
-    skills: ["MERN Stack", "C++", "Python", "MS Excel", "Google Sheets", "Data Structures", "OOP", "DBMS"],
+    category: "Communication",
+    skills: ["Verbal Communication", "Written Communication", "Public Speaking", "Presentation Skills", "Client Handling"],
     gridClass: "skills-card-large",
-    glow: "rgba(124, 58, 237, 0.25)"
-  },
-  {
-    category: "HR & Management",
-    skills: ["Talent Acquisition", "Employee Engagement", "Organizational Behavior", "Coordination"],
-    gridClass: "skills-card-tall",
-    glow: "rgba(236, 72, 153, 0.25)"
-  },
-  {
-    category: "Communication & Leadership",
-    skills: ["Public Speaking", "Team Coordination", "Conflict Resolution", "Interpersonal Skills"],
-    gridClass: "skills-card-wide",
     glow: "rgba(6, 182, 212, 0.25)"
   },
   {
-    category: "Documentation",
-    skills: ["Reporting", "Structured Writing", "Technical Documentation"],
+    category: "Business Skills",
+    skills: ["Lead Generation", "CRM", "Documentation", "Reporting", "Business Communication", "Time Management"],
+    gridClass: "skills-card-tall",
+    glow: "rgba(124, 58, 237, 0.25)"
+  },
+  {
+    category: "Tools",
+    skills: ["Microsoft Excel", "Microsoft Word", "PowerPoint", "Google Workspace", "Canva"],
     gridClass: "skills-card-small",
     glow: "rgba(16, 185, 129, 0.25)"
+  },
+  {
+    category: "Technical Awareness",
+    skills: ["Website Management", "SEO", "HTML", "CSS", "JavaScript", "React", "Git & GitHub"],
+    gridClass: "skills-card-wide",
+    glow: "rgba(236, 72, 153, 0.25)"
   }
 ];
 
@@ -55,7 +55,7 @@ export const SkillsPage: React.FC = () => {
     >
       <motion.div variants={itemVariants} className="section-header" style={{ alignItems: 'center', textAlign: 'center', marginBottom: '48px' }}>
         <h2 className="text-hero" style={{ fontSize: '3rem' }}>Skills <span className="text-gradient-accent">&</span> Expertise</h2>
-        <p className="section-caption" style={{ fontSize: '1.2rem', marginTop: '16px' }}>A balanced mix of technical proficiency and human-centric skills.</p>
+        <p className="section-caption" style={{ fontSize: '1.2rem', marginTop: '16px' }}>A balanced mix of professional communication, business tools, and technical awareness.</p>
       </motion.div>
       
       <div className="bento-grid">

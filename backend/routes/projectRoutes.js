@@ -86,7 +86,7 @@ router.get('/:id', async (req, res) => {
  */
 router.post('/', authMiddleware, async (req, res) => {
   try {
-    const { title, description, keyFeatures, whatILearned, techStack, codeLink, liveLink, tag } = req.body;
+    const { title, description, keyFeatures, whatILearned, techStack, codeLink, liveLink, tag, problem, solution, role, outcome } = req.body;
 
     // Validate required fields
     if (!title || !description || !codeLink) {
@@ -100,6 +100,10 @@ router.post('/', authMiddleware, async (req, res) => {
     const project = new Project({
       title: title.trim(),
       description: description.trim(),
+      problem: problem ? problem.trim() : '',
+      solution: solution ? solution.trim() : '',
+      role: role ? role.trim() : '',
+      outcome: outcome ? outcome.trim() : '',
       keyFeatures: Array.isArray(keyFeatures) ? keyFeatures : [],
       whatILearned: whatILearned ? whatILearned.trim() : '',
       techStack: Array.isArray(techStack) ? techStack : [],
@@ -133,7 +137,7 @@ router.post('/', authMiddleware, async (req, res) => {
 router.put('/:id', authMiddleware, async (req, res) => {
   try {
     const { id } = req.params;
-    const { title, description, keyFeatures, whatILearned, techStack, codeLink, liveLink, tag } = req.body;
+    const { title, description, keyFeatures, whatILearned, techStack, codeLink, liveLink, tag, problem, solution, role, outcome } = req.body;
 
     if (!id.match(/^[0-9a-fA-F]{24}$/)) {
       return res.status(400).json({
@@ -146,6 +150,10 @@ router.put('/:id', authMiddleware, async (req, res) => {
     const updateData = {};
     if (title !== undefined) updateData.title = title.trim();
     if (description !== undefined) updateData.description = description.trim();
+    if (problem !== undefined) updateData.problem = problem.trim();
+    if (solution !== undefined) updateData.solution = solution.trim();
+    if (role !== undefined) updateData.role = role.trim();
+    if (outcome !== undefined) updateData.outcome = outcome.trim();
     if (keyFeatures !== undefined) updateData.keyFeatures = Array.isArray(keyFeatures) ? keyFeatures : [];
     if (whatILearned !== undefined) updateData.whatILearned = whatILearned ? whatILearned.trim() : '';
     if (techStack !== undefined) updateData.techStack = Array.isArray(techStack) ? techStack : [];

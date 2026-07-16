@@ -6,9 +6,9 @@ import UploadFolderButton from './UploadFolderButton';
 import CreateProjectForm from './CreateProjectForm';
 import UploadProjectFolder from './UploadProjectFolder';
 import ProjectList from './ProjectList';
-import HeroSlidesManager from './HeroSlidesManager';
+import ProfilePictureManager from './ProfilePictureManager';
 import { DocumentationManagement } from './DocumentationManagement';
-import { BookOpen, Rocket, Image as ImageIcon, Save, ArrowUpRight, AlertTriangle, X, Inbox, Folder, Trash2, ArrowLeft, ArrowRight } from 'lucide-react';
+import { BookOpen, Rocket, User, Save, ArrowUpRight, AlertTriangle, X, Inbox, Folder, Trash2, ArrowLeft, ArrowRight } from 'lucide-react';
 import './DashboardPage.css';
 import './ProjectsManagement.css';
 
@@ -119,7 +119,7 @@ const DashboardPage = () => {
   const tabs: { id: TabId; label: string; icon: React.ReactNode }[] = [
     { id: 'docs', label: 'Documentations', icon: <BookOpen size={18} /> },
     { id: 'projects', label: 'Projects', icon: <Rocket size={18} /> },
-    { id: 'hero', label: 'Hero Slides', icon: <ImageIcon size={18} /> },
+    { id: 'hero', label: 'Profile Picture', icon: <User size={18} /> },
     { id: 'code', label: 'Code Library', icon: <Save size={18} /> },
   ];
 
@@ -197,10 +197,10 @@ const DashboardPage = () => {
             <DocumentationManagement token={token} />
           )}
 
-          {/* Hero Slides Tab */}
+          {/* Profile Picture Tab */}
           {activeTab === 'hero' && token && (
             <div className="db-card">
-              <HeroSlidesManager token={token} />
+              <ProfilePictureManager token={token} />
             </div>
           )}
 

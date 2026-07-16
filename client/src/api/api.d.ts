@@ -15,5 +15,8 @@ export const getDocumentations: () => Promise<any>;
 export const createDocumentation: (token: string, docData: FormData) => Promise<any>;
 export const deleteDocumentation: (token: string, docId: string) => Promise<any>;
 
+export const getProfilePicture: () => Promise<any>;
+export const updateProfilePicture: (token: string, formData: FormData) => Promise<any>;
+
 declare const api: any;
 export default api;

@@ -29,6 +29,26 @@ const projectSchema = new mongoose.Schema(
       trim: true,
       maxlength: [2000, 'Description cannot exceed 2000 characters']
     },
+    problem: {
+      type: String,
+      trim: true,
+      maxlength: [2000, 'Problem description cannot exceed 2000 characters']
+    },
+    solution: {
+      type: String,
+      trim: true,
+      maxlength: [2000, 'Solution description cannot exceed 2000 characters']
+    },
+    role: {
+      type: String,
+      trim: true,
+      maxlength: [500, 'Role description cannot exceed 500 characters']
+    },
+    outcome: {
+      type: String,
+      trim: true,
+      maxlength: [2000, 'Outcome description cannot exceed 2000 characters']
+    },
     keyFeatures: {
       type: [String],
       default: [],

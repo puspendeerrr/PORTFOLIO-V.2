@@ -11,7 +11,7 @@ import { requestLogger, logger } from './middleware/logger.js';
 import authRoutes from './routes/authRoutes.js';
 import filesRoutes from './routes/filesRoutes.js';
 import projectRoutes from './routes/projectRoutes.js';
-import heroSlidesRoutes from './routes/heroSlidesRoutes.js';
+import profilePictureRoutes from './routes/profilePictureRoutes.js';
 import documentationRoutes from './routes/documentationRoutes.js';
 
 // Load environment variables
@@ -87,7 +87,7 @@ app.get('/api/health', (req, res) => {
 app.use('/api/auth', authRoutes);
 app.use('/api/files', filesRoutes);
 app.use('/api/projects', projectRoutes);
-app.use('/api/hero-slides', heroSlidesRoutes);
+app.use('/api/profile-picture', profilePictureRoutes);
 app.use('/api/documentations', documentationRoutes);
 
 // ============================================

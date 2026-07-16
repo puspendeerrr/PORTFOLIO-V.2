@@ -78,6 +78,28 @@
   font-size: 0.8rem;
 }
 
+.project-card-section-content {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+
+.project-card-section-content--highlight {
+  color: #34d399 !important; /* Emphasize corporate business outcomes */
+  font-weight: 500;
+}
+
+.project-tag-badge {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  font-weight: 600;
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+  border-color: transparent;
+}
+
 @media (max-width: 900px) {
   .project-card-body {
     grid-template-columns: minmax(0, 1fr);
