@@ -2,14 +2,6 @@ import React, { useState } from "react";
 import { Mail, Phone, MapPin, Globe, FileText, Copy, Check } from "lucide-react";
 import "./ContactInfoSection.css";
 
-const LinkedinIcon = () => (
-  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-linkedin">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
-
 export const ContactInfoSection: React.FC = () => {
   const [copiedText, setCopiedText] = useState<string | null>(null);
 
@@ -42,13 +34,7 @@ export const ContactInfoSection: React.FC = () => {
       value: "Panipat, Haryana, India",
       copyable: true,
     },
-    {
-      icon: <LinkedinIcon />,
-      label: "LinkedIn",
-      value: "linkedin.com/in/puspender-kumar-993710325",
-      link: "https://www.linkedin.com/in/puspender-kumar-993710325",
-      copyable: false,
-    },
+
     {
       icon: <Globe size={20} />,
       label: "Portfolio",
